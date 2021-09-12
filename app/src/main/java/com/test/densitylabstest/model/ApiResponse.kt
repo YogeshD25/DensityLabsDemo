@@ -3,7 +3,7 @@ package com.test.densitylabstest.model
 import com.google.gson.annotations.SerializedName
 
 
-data class ApiBaseResponse (
+data class ApiResponse (
 
 	@SerializedName("meta") val meta : Meta,
 	@SerializedName("notifications") val notifications : List<Notifications>,

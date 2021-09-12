@@ -8,11 +8,11 @@
     <fragment
         android:id="@+id/allMatchesFragment"
         android:name="com.test.densitylabstest.ui.fragments.AllMatchesFragment"
-        android:label="fragment_all_matches"
+        android:label="All Matches"
         tools:layout="@layout/fragment_all_matches" />
     <fragment
         android:id="@+id/savedFragment"
         android:name="com.test.densitylabstest.ui.fragments.SavedFragment"
-        android:label="fragment_saved"
+        android:label="Saved Matches"
         tools:layout="@layout/fragment_saved" />
 </navigation>

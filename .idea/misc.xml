@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android/DensityLabsTest2/app/src/main/res/drawable/ic_sharp_star_border_24.xml" value="0.262037037037037" />
+        <entry key="..\:/Android/DensityLabsTest2/app/src/main/res/drawable/star_selector.xml" value="0.262037037037037" />
         <entry key="..\:/Android/DensityLabsTest2/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Android/DensityLabsTest2/app/src/main/res/layout/fragment_all_matches.xml" value="0.25416666666666665" />
         <entry key="..\:/Android/DensityLabsTest2/app/src/main/res/layout/fragment_saved.xml" value="0.25416666666666665" />

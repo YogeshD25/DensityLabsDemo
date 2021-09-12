@@ -12,21 +12,21 @@ data class Venues(
     val id : String,
     val name : String,
     @Embedded(prefix = "contact_")
-    val contact : Contact,
+    val contact : Contact?,
     @Embedded(prefix = "location_")
-    val location : Location,
+    val location : Location?,
     val verified : Boolean,
     @Embedded(prefix = "stats_")
     val stats : Stats,
     @Embedded(prefix = "beenhere_")
-    val beenHere : BeenHere,
+    val beenHere : BeenHere?,
     @Embedded(prefix = "venue_page_")
-    val venuePage : VenuePage,
+    val venuePage : VenuePage?,
     @Embedded(prefix = "here_now_")
-    val hereNow : HereNow,
-    val referralId : String,
-    val hasPerk : Boolean,
-    val isSaved : Boolean = false
+    val hereNow : HereNow?,
+    val referralId : String?,
+    val hasPerk : Boolean?,
+    var isSaved : Boolean = false
 
 
 

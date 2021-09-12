@@ -3,6 +3,7 @@ package com.test.densitylabstest.data.repository
 import com.test.densitylabstest.data.local.dao.VenueDao
 import com.test.densitylabstest.data.local.entities.Venues
 import com.test.densitylabstest.data.remote.VenueDataSource
+import com.test.densitylabstest.util.NetworkResult
 import com.test.densitylabstest.util.Resource
 import com.test.densitylabstest.util.networkBoundResource
 import kotlinx.coroutines.Dispatchers
@@ -15,7 +16,7 @@ class VenueRepositoryImpl @Inject constructor(
     private val venueDao: VenueDao,
 ) : VenueRepository {
 
-    override fun fetchVenues(): Flow<Resource<List<Venues>>> = networkBoundResource(
+    override suspend fun fetchVenues(): Flow<Resource<List<Venues>>> = networkBoundResource(
         query = {
             venueDao.getAllVenue()
         },
@@ -30,5 +31,13 @@ class VenueRepositoryImpl @Inject constructor(
                 categories.body()?.let { venueDao.insertAllVenues(it.response.venues) }
             }
         })
+
+    override suspend fun userSavedPlace(id: String, value: Boolean) {
+        venueDao.userSavedPlace(id, value)
+    }
+
+    override suspend fun getUserSavedPlace(): Flow<List<Venues>> {
+        return venueDao.getAllSavedVenues()
+    }
 
 }

@@ -66,9 +66,7 @@
             android:id="@+id/save_icon"
             android:layout_width="30dp"
             android:layout_height="30dp"
-
-
-            android:background="@drawable/ic_sharp_star_border_24"
+            android:background="@drawable/star_selector"
             android:button="@null"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

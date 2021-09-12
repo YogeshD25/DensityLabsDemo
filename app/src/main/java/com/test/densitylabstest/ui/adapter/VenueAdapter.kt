@@ -7,11 +7,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.test.densitylabstest.data.local.entities.Venues
 import com.test.densitylabstest.databinding.ItemVenueViewholderBinding
 
-class VenueAdapter : RecyclerView.Adapter<VenueAdapter.MyViewHolder>() {
+class VenueAdapter(saveClickInterface: SaveClickInterface) : RecyclerView.Adapter<VenueAdapter.MyViewHolder>() {
 
     private var categoryList = emptyList<Venues>()
     private lateinit var context: Context
     lateinit var itemBinding: ItemVenueViewholderBinding
+
+    private val saveClickInterface: SaveClickInterface = saveClickInterface
+
 
     class MyViewHolder(itemBinding: ItemVenueViewholderBinding) :
         RecyclerView.ViewHolder(itemBinding.root)
@@ -26,7 +29,24 @@ class VenueAdapter : RecyclerView.Adapter<VenueAdapter.MyViewHolder>() {
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = categoryList[position]
 
-        itemBinding.name.text = currentItem.name
+        if(currentItem.isSaved)
+        itemBinding.saveIcon.isChecked = true
+
+        itemBinding.tvItemName.text = currentItem.name
+        itemBinding.tvDistance.text = currentItem.location?.distance.toString()
+        itemBinding.tvAddress.text = currentItem.location?.address
+        itemBinding.tvContact.text = currentItem.contact?.phone
+
+        itemBinding.saveIcon.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                currentItem.isSaved = true
+                saveClickInterface.onSave(position, currentItem.id, true)
+            } else {
+                currentItem.isSaved = false
+                saveClickInterface.onSave(position, currentItem.id, false)
+
+            }
+        }
 
     }
 
@@ -38,4 +58,9 @@ class VenueAdapter : RecyclerView.Adapter<VenueAdapter.MyViewHolder>() {
         this.categoryList = categories
         notifyDataSetChanged()
     }
+
+    interface SaveClickInterface {
+        fun onSave(position: Int, placeId: String, isChecked: Boolean)
+    }
+
 }

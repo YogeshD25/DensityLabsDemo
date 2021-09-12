@@ -3,6 +3,6 @@
 
     <group android:checkableBehavior="single">
         <item android:title="All Matches" android:id="@+id/allMatchesFragment" />
-        <item android:title="Saved Matches" android:id="@+id/savedMatches"/>
+        <item android:title="Saved Matches" android:id="@+id/savedFragment"/>
     </group>
 </menu>

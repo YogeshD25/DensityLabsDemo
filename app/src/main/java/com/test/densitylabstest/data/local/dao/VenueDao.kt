@@ -13,6 +13,9 @@ interface VenueDao {
     @Query("SELECT * FROM venues")
     fun getAllVenue(): Flow<List<Venues>>
 
+    @Query("SELECT * FROM venues WHERE isSaved = 1")
+    fun getAllSavedVenues(): Flow<List<Venues>>
+
     @Query("SELECT * FROM venues WHERE id = :id")
     fun getVenue(id: String): Flow<Venues>
 
@@ -21,5 +24,8 @@ interface VenueDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertVenue(user: Venues)
+
+    @Query("UPDATE venues SET isSaved = :value where id = :id")
+    suspend fun userSavedPlace(id: String, value: Boolean)
 
 }

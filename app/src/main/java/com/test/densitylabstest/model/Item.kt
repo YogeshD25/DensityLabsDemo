@@ -5,5 +5,5 @@ import com.google.gson.annotations.SerializedName
 
 data class Item (
 
-	@SerializedName("unreadCount") val unreadCount : Int
+	@SerializedName("unreadCount") val unreadCount : Int?
 )
