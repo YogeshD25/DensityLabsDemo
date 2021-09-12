@@ -1,25 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:elevation="4dp"
+    app:cardCornerRadius="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:padding="8dp">
 
-        <TextView
-            android:id="@+id/name"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:scaleType="fitXY"
-            android:textSize="32sp"
-            android:text="@string/app_name"
-            app:layout_constraintEnd_toEndOf="parent"
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_item_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/blue"
+            android:textSize="16sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="86th Floor Observation name" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_distance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/distance"
+            android:drawablePadding="4dp"
+            android:textColor="@color/blue"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="@+id/tv_item_name"
+            app:layout_constraintTop_toBottomOf="@+id/tv_item_name"
+            tools:text="5 km" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_address"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_outline_location_on_24"
+            android:drawablePadding="4dp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/blue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_distance"
+            app:layout_constraintTop_toBottomOf="@+id/tv_distance"
+            tools:text="dummy adderss ash sd f fa sd fsd slkd sdf fhs sdsd df s asdf" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_contact"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_baseline_local_phone_24"
+            android:drawablePadding="4dp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/blue"
+            app:layout_constraintStart_toStartOf="@+id/tv_address"
+            app:layout_constraintTop_toBottomOf="@+id/tv_address"
+            tools:text="+11231654231" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/save_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+
+
+            android:background="@drawable/ic_sharp_star_border_24"
+            android:button="@null"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
